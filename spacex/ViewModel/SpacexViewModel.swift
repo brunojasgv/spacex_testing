@@ -21,18 +21,12 @@ enum LaunchFilter {
     case descending
 }
 
-/// GenericSession is a wrapper class for URLSession. It conforms to the GenericSessionProtocol.
-/// The class is created for dependency injection and abstraction which makes the code easier to test and maintain.
 final class GenericSession: GenericSessionProtocol {
     var session: URLSession {
         return URLSession.shared
     }
 }
 
-/// SpaceXViewModel is the ViewModel in the MVVM architecture.
-/// This class is responsible for fetching and managing data and state for the view.
-/// It uses the SpaceXService to fetch data and publishes its state changes to the view.
-/// It utilizes dependency injection, as it receives its service as a parameter in the initializer.
 class SpaceXViewModel: ObservableObject {
     private let service: SpaceXServiceProtocol
     private var cancellables = Set<AnyCancellable>()

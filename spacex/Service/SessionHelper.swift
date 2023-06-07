@@ -21,8 +21,6 @@ enum NetworkError: Error {
     }
 }
 
-/// GenericSessionProtocol is a protocol that abstracts away the details of how a session should look.
-/// This allows for easy substitution of different session types, aiding in testing and decoupling the code.
 protocol GenericSessionProtocol {
     var session: URLSession { get }
     func execute<T>(_ request: URLRequest, decodingType: T.Type, queue: DispatchQueue, retries: Int) -> AnyPublisher<T, Error> where T: Decodable
@@ -49,7 +47,6 @@ extension GenericSessionProtocol {
     }
 }
 
-/// Endpoint is a protocol that requires any conforming types to provide a base and path for constructing URLs.
 protocol Endpoint {
     
     var base: String { get }

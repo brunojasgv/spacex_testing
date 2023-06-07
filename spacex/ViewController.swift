@@ -18,12 +18,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
-        
-        // - viewModel: The ViewModel in the MVVM architecture for the application.
-        // It is being initialized with a SpaceXService, which in turn is initialized with a GenericSession.
-        // This setup demonstrates dependency injection, which makes the code more modular, testable, and maintainable.
-        // Each component can be modified or tested independently, and the SpaceXViewModel is not directly dependent on concrete classes for its dependencies.
+
         viewModel = SpaceXViewModel(service: SpaceXService(session: GenericSession()))
         
         tableView.dataSource = self
